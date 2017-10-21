@@ -1,14 +1,40 @@
 import { Component } from '@angular/core';
-import { UserAgentService } from './mantis/user-agent.service';
+import { MantisService } from './models/mantis.service';
+import { Project } from './models/project';
+import { TreeNode, ITreeOptions } from 'angular-tree-component'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [UserAgentService]
+  styleUrls: ['./app.component.scss'],
+  providers: [ MantisService ]
 })
 export class AppComponent {
   title = 'app';
 
-  constructor(private userAgentService: UserAgentService) { }
+  private options;
+  private stories;
+  private projects;
+
+  constructor(private mantis: MantisService) {
+      mantis.getProjects().then((projects: Project[]) => {
+        this.projects = projects
+      })
+      this.options = {
+        getChildren: (node :TreeNode) => {
+          return node.data.loadChildren()
+        },
+        allowDrag: (node: TreeNode) => {
+          return node.data.allowDrag()
+        },
+        displayField: 'summary'
+      }
+  }
+
+
+
+  log(node) {
+    console.log('GBOBGO', node)
+  }
+
 }
