@@ -104,9 +104,12 @@ export class MantisService {
           username, password,
           project_id: projectId,
         }, (err, result) => {
-          resolve(result.return.item
-            .map((item) => Release.fromSoap(item, this))
-            .sort((a, b) => SemverCompare(a.summary, b.summary) * -1)
+          resolve(
+            result && result.return && result.return.item
+              ? result.return.item
+                .map((item) => Release.fromSoap(item, this))
+                .sort((a, b) => SemverCompare(a.summary, b.summary) * -1)
+              : []
           )
         })
       })
@@ -117,7 +120,8 @@ export class MantisService {
 
   getProjects(): Promise<Project[]> {
     return Promise.all([
-      (new Project(4000040, 'UEP', this)).init()
+      (new Project(4000040, 'UEP', this)).init(),
+      (new Project(4000038, 'ISAP', this)).init()
     ])
   }
 

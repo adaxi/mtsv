@@ -1,5 +1,6 @@
-
-<h2>Roadmap</h2>
+<mat-toolbar color="primary">
+  Roadmap
+</mat-toolbar>
 <tree-root [nodes]="projects" [options]="options">
   <ng-template #treeNodeTemplate let-node let-index="index">
     <div [ngSwitch]="node.data.type()">

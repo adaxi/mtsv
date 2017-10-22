@@ -1,1 +1,15 @@
-<span style="display: inline-block">{{ story.summary }}</span><mat-chip-list style="display: inline-block" *ngIf="story.handler"><mat-chip> {{ story.handler }}</mat-chip></mat-chip-list>
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+          <span style="margin: auto 0">
+            <a href="#">M{{ story.id }}</a>
+            <span [ngClass]="{ 'story-closed': story.isClosed }">{{ story.summary }}</span>
+            <mat-chip-list style="display: inline-block" *ngIf="story.handler"><mat-chip>{{ story.handler }}</mat-chip></mat-chip-list>
+          </span>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-form-field>
+        <input matInput placeholder="Sprint: 213">
+      </mat-form-field>
+      <button mat-raised-button color="primary">SET SPRINT</button>
+</mat-expansion-panel>

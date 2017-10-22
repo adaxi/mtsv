@@ -10,6 +10,7 @@ export class Story extends Node {
   summary: string;
   handler: string;
   hasChildren: boolean = true;
+  isClosed: boolean = false;
 
   constructor(summary?: string) {
     super()
@@ -33,7 +34,8 @@ export class Story extends Node {
       id,
       summary,
       handler: { name : handler } = { name: undefined },
-      relationships
+      relationships,
+      status: { name: status }
     } = object;
 
     let story : Story = new Story()
@@ -41,6 +43,7 @@ export class Story extends Node {
     story.summary = summary;
     story.handler = handler;
     story.relationships = relationships;
+    story.isClosed = status === 'closed'
     return story;
   }
 }

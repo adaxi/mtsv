@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 
 
 import { TreeModule } from 'angular-tree-component';
-import { MatChipsModule } from '@angular/material';
+import { MatChipsModule, MatToolbarModule, MatExpansionModule, MatButtonModule, MatInputModule, MatSlideToggleModule, MatCardModule } from '@angular/material';
 
 
 import { AppComponent } from './app.component';
@@ -27,7 +27,13 @@ import { ReleaseComponent } from './components/release/release.component';
     FormsModule,
     TreeModule,
     CommonModule,
-    MatChipsModule
+    MatChipsModule,
+    MatToolbarModule,
+    MatExpansionModule,
+    MatButtonModule,
+    MatInputModule,
+    MatSlideToggleModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

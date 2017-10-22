@@ -34,7 +34,7 @@ export class AppComponent {
 
 
   log(node) {
-    console.log('GBOBGO', node)
+    console.error('GBOBGO', node)
   }
 
 }

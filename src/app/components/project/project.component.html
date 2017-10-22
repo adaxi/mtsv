@@ -1,1 +1,12 @@
-<span style="display: inline-block">{{ project.summary }}</span>
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+          <h2>{{ project.summary }}</h2>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-form-field>
+        <input matInput placeholder="Example: 2.1.0">
+      </mat-form-field>
+      <button mat-raised-button color="primary">ADD RELEASE</button>
+</mat-expansion-panel>
+
